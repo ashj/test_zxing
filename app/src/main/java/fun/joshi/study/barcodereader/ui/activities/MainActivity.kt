@@ -1,6 +1,7 @@
 package `fun`.joshi.study.barcodereader.ui.activities
 
 import `fun`.joshi.study.barcodereader.databinding.ActivityMainBinding
+import `fun`.joshi.study.barcodereader.extensions.formatBarcode
 import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -37,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         if(scanResult.contents != null) {
             val builder = AlertDialog.Builder(this@MainActivity)
                 .setTitle("Result")
-                .setMessage(scanResult.contents)
+                .setMessage(scanResult.contents.formatBarcode())
                 .setPositiveButton("OK") { dialog, which ->
                     dialog.dismiss()
                 }
